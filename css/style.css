@@ -13,6 +13,22 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+.button-up a i {
+  position: fixed;
+  padding: 15px;
+  bottom: 40px;
+  right: 30px;
+  z-index: 11;
+  border-radius: 50%;
+  background-color: #000;
+  color: #ffffff;
+  border: 1px solid #fff;
+  transition: 0.3s ease-in-out all;
+}
+.button-up a i:hover {
+  background-color: #ff5e00;
+  transform: translateY(-10px);
+}
 header {
   width: 100%;
   background-color: #000;
@@ -106,22 +122,47 @@ main {
   color: #cacaca;
   font-size: 3rem;
   font-weight: bold;
+  position: relative;
 }
 .description .text.sec-text {
   color: #ff5e00;
-  text-shadow: 0 1px 10px rgba(255, 123, 0, 0.5);
+}
+.description .text.sec-text::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  border-left: 3px solid #ff5e00;
+  animation: animat 4s steps(12) infinite;
+  animation-direction: alternate;
+}
+@keyframes animat {
+  0%,
+  20%,
+  40%,
+  60%,
+  80% {
+    left: 100%;
+  }
+  100% {
+    left: -10%;
+  }
 }
 .img {
-  width: 50%;
+  width: 60%;
   text-align: center;
 }
 .hero img {
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 0 50%;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   transition: 0.3s ease-in-out all;
+  position: relative;
 }
 .hero img:hover {
   transform: translateY(-10px);
@@ -171,6 +212,8 @@ main {
 }
 .col-6 img {
   width: 350px !important;
+  height: 350px;
+  object-fit: cover;
   margin: auto;
   display: block;
   border-radius: 50%;
@@ -207,9 +250,6 @@ main {
   background-color: #000000;
   border-radius: 50%;
   transition: 0.3s ease-in-out all;
-}
-.about .link-me:hover > :not(:hover) {
-  filter: blur(1px);
 }
 .about .link-me i:hover {
   background-color: #ff5e00;
@@ -267,7 +307,7 @@ main {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .skill .row .col-4 .text {
-  color: #000;
+  color: #3e3e3e;
   font-size: 16px;
   padding: 20px 15px 30px;
   text-align: justify;
@@ -378,6 +418,7 @@ main {
   color: #ff5e00;
   border-radius: 5px;
   outline-color: #ff5e00;
+  font-family: sans-serif;
 }
 .contact .row .col .submit {
   width: 150px;
@@ -461,3 +502,8 @@ main {
   padding: 30px 0;
 }
 /* ======== end footer ============ */
+
+/* Responsive */
+/* @media (max-width: 1025px) {
+  padding-inline : 40px;
+} */
